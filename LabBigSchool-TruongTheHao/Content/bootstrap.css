@@ -1532,6 +1532,28 @@ pre,
 samp {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+.course {
+    list-style: none;
+}
+.course > li {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.course > li.date{
+    text-align: center;
+    background-color: #d41d50;
+    color: white;
+    width: 60px;
+    border-radius: 8px;
+}
+
+.course > li .details{
+    position: absolute;
+    top: 0;
+    left: 70px;
+}
 code {
   padding: 2px 4px;
   font-size: 90%;
@@ -4665,8 +4687,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
-  border-color: #080808;
+    background-color: #1e6e7e;
+    border-color: #080808;
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;

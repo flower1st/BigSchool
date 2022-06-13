@@ -5,16 +5,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using LabBigSchool_TruongTheHao.ViewModels;
 
 namespace LabBigSchool_TruongTheHao.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDBContext _dbContext;
+        private ApplicationDbContext _dbContext;
 
         public HomeController()
         {
-            _dbContext = new ApplicationDBContext();
+            _dbContext = new ApplicationDbContext();
         }
         public ActionResult Index()
         {
@@ -22,10 +23,13 @@ namespace LabBigSchool_TruongTheHao.Controllers
                 .Include(c => c.Lecturer)
                 .Include(c => c.Category)
                 .Where(c => c.Datetime > DateTime.Now);
-
-            return View(upcomingCourses);
+            var viewModel = new CourseViewModel
+            {
+                UpcomingCourses = upcomingCourses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
         }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

@@ -31,7 +31,7 @@ textarea {
     margin-bottom: 30px;
 }
 
-.course > li.date{
+.course > li .date{
     text-align: center;
     background-color: #d41d50;
     color: white;

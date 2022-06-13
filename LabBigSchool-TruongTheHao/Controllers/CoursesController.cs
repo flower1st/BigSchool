@@ -13,10 +13,10 @@ namespace LabBigSchool_TruongTheHao.Controllers
     {
         // GET: Course
 
-        private readonly ApplicationDBContext _dBContext;
+        private readonly ApplicationDbContext _dBContext;
         public CoursesController()
         {
-            _dBContext = new ApplicationDBContext();
+            _dBContext = new ApplicationDbContext();
         }
             
         [Authorize]

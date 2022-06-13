@@ -9,7 +9,7 @@ namespace LabBigSchool_TruongTheHao.ViewModels
 {
     public class CourseViewModel
     {
-        [Required]
+        [Required]  
         public string Place { get; set; }
         [Required]
         [FutureDate]
@@ -20,7 +20,8 @@ namespace LabBigSchool_TruongTheHao.ViewModels
         [Required]
         public byte Category { get; set; }
         public IEnumerable <Category> Categories { get; set; }
-
+        public IEnumerable<Course> UpcomingCourses { get; set; }
+        public bool ShowAction { get; set; }
         public DateTime GetDateTime()
         {
             return DateTime.Parse(string.Format("{0} {1}", Date, Time));

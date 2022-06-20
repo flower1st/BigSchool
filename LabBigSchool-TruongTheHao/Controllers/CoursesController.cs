@@ -74,6 +74,26 @@ namespace LabBigSchool_TruongTheHao.Controllers
             return View(viewModel);
         }
 
+        public ActionResult Following()
+        {
+            var userId = User.Identity.GetUserId();
+
+            var courses = _dBContext.Attendances
+                .Where(a => a.AttendeeId == userId)
+                .Select(a => a.Course)
+                .Include(l => l.Lecturer)
+                .Include(l => l.Category)
+                .ToList();
+
+            var viewModel = new CourseViewModel
+            {
+                UpcomingCourses = courses,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
+        }
+
         [Authorize]
         public ActionResult Mine()
         {

@@ -29,12 +29,11 @@
             <div class="details">
                 <span class="lecturer">
                     @course.Lecturer.Name
-                    @if (Model.ShowAction)
-                    {
-                        <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
-                    }
-
                 </span>
+                @if (Model.ShowAction)
+                {
+                    <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
+                }
                 <span class="category">
                     @course.Category.Name
                 </span>
@@ -91,7 +90,6 @@
                         alert("Something failed!");
                     });
             });
-
             $(".js-toggle-follow").click(function (e) {
                 var button = $(e.target);
                 $.post("/api/followings", { followeeId: button.attr("data-user-id") })

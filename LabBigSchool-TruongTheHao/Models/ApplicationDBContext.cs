@@ -42,6 +42,7 @@ namespace LabBigSchool_TruongTheHao.Models
                 .HasMany(u => u.Followees)
                 .WithRequired(f => f.Follower)
                 .WillCascadeOnDelete(false);
+
             base.OnModelCreating(modelBuilder);
         }
     }
